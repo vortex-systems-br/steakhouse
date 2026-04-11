@@ -1,177 +1,194 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vortex Steakhouse | Premium Experience</title>
-    
-    <script src="https://cdn.tailwindcss.com"></script>
-    
-    <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
-    
-    <script src="https://unpkg.com/lucide@latest"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        gold: '#D4AF37',
-                        oxblood: '#4A0404',
-                    },
-                    fontFamily: {
-                        heading: ['Marcellus', 'serif'],
-                        sans: ['Montserrat', 'sans-serif'],
-                    },
-                    keyframes: {
-                        zoomHero: {
-                            '0%': { transform: 'scale(1.1)' },
-                            '100%': { transform: 'scale(1.2)' }
-                        }
-                    },
-                    animation: {
-                        zoomHero: 'zoomHero 20s ease-in-out infinite alternate'
-                    }
-                }
-            }
-        }
-    </script>
+<title>Vortex Steakhouse</title>
 
-    <style>
-        html { scroll-behavior: smooth; }
-        .font-heading { font-family: 'Marcellus', serif; }
-    </style>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+
+* {margin:0;padding:0;box-sizing:border-box;}
+
+body {
+background:#0a0a0a;
+color:#fff;
+font-family:Inter;
+}
+
+/* HEADER */
+header {
+position:fixed;
+width:100%;
+padding:20px 5%;
+display:flex;
+justify-content:space-between;
+background:rgba(0,0,0,0.7);
+backdrop-filter:blur(10px);
+z-index:1000;
+}
+
+.logo {
+color:#d4af37;
+font-family:'Playfair Display';
+letter-spacing:3px;
+}
+
+nav a {
+color:#aaa;
+margin-left:20px;
+text-decoration:none;
+font-size:12px;
+}
+
+nav a:hover {color:#d4af37;}
+
+/* HERO */
+.hero {
+height:100vh;
+background:url('https://images.unsplash.com/photo-1600891964599-f61ba0e24092') center/cover;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+}
+
+.hero h1 {
+font-size:60px;
+font-family:'Playfair Display';
+}
+
+.hero p {
+color:#ccc;
+margin:20px 0;
+}
+
+.btn {
+border:1px solid #d4af37;
+padding:15px 40px;
+color:#d4af37;
+text-decoration:none;
+}
+
+.btn:hover {
+background:#d4af37;
+color:black;
+}
+
+/* CATALOGO */
+.catalogo {
+padding:100px 5%;
+}
+
+.grid {
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:30px;
+}
+
+.card {
+background:#111;
+border:1px solid rgba(212,175,55,0.1);
+}
+
+.card img {
+width:100%;
+height:200px;
+object-fit:cover;
+}
+
+.card h3 {padding:10px;}
+
+.preco {
+padding:10px;
+color:#d4af37;
+}
+
+.card a {
+display:block;
+padding:10px;
+text-align:center;
+color:#d4af37;
+text-decoration:none;
+}
+
+/* WHATS */
+.whatsapp {
+position:fixed;
+bottom:20px;
+right:20px;
+background:#25D366;
+padding:15px;
+border-radius:50px;
+color:#fff;
+text-decoration:none;
+}
+
+/* FOOTER */
+footer {
+text-align:center;
+padding:40px;
+color:#666;
+}
+
+</style>
 </head>
-<body class="bg-black text-white font-sans selection:bg-gold selection:text-black">
 
-    <header class="fixed top-0 w-full z-50 transition-all duration-500 p-6 flex justify-between items-center bg-gradient-to-b from-black/80 to-transparent">
-        <a href="#" class="text-gold font-heading text-2xl tracking-[4px]">VORTEX</a>
-        <nav class="hidden md:flex gap-8 text-[10px] tracking-[3px] font-bold">
-            <a href="#selecao" class="hover:text-gold transition">SELEÇÃO</a>
-            <a href="https://wa.me/5511999999999" class="hover:text-gold transition">RESERVAS</a>
-        </nav>
-    </header>
+<body>
 
-    <section class="relative h-screen flex items-center overflow-hidden">
-        <div class="absolute inset-0 z-0">
-            <img src="https://images.unsplash.com/photo-1551028150-64b9f398f678?q=80&w=1400&auto=format&fit=crop" 
-                 class="w-full h-full object-cover animate-zoomHero">
-            <div class="absolute inset-0 bg-gradient-to-b from-black/90 via-black/40 to-black"></div>
-        </div>
+<header>
+<div class="logo">VORTEX</div>
+<nav>
+<a href="#">Início</a>
+<a href="#catalogo">Cortes</a>
+</nav>
+</header>
 
-        <div class="relative z-10 max-w-7xl mx-auto px-6 w-full">
-            <span class="text-gold tracking-[6px] text-xs font-bold uppercase mb-4 block">Premium Steakhouse</span>
-            <h1 class="font-heading text-6xl md:text-8xl leading-[0.9] mb-8">
-                A Experiência <br>
-                <span class="text-gold">do Sabor</span>
-            </h1>
-            <p class="text-white/60 max-w-lg text-lg mb-10 font-light">
-                Cortes nobres selecionados para quem não aceita nada menos que a perfeição absoluta.
-            </p>
-            <div class="flex flex-wrap gap-6">
-                <a href="#selecao" class="px-12 py-5 border border-gold text-gold hover:bg-gold hover:text-black transition-all duration-700 tracking-widest text-xs font-bold uppercase">
-                    Explorar Seleção
-                </a>
-                <a href="https://wa.me/5511999999999" class="px-12 py-5 bg-oxblood text-white hover:border-gold border border-transparent transition-all duration-700 tracking-widest text-xs font-bold uppercase">
-                    Reservar Agora
-                </a>
-            </div>
-        </div>
-    </section>
+<section class="hero">
+<h1>A ARTE DA CARNE</h1>
+<p>Cortes nobres • Experiência premium</p>
+<a href="#catalogo" class="btn">VER CORTES</a>
+</section>
 
-    <section id="selecao" class="max-w-7xl mx-auto px-6 py-32">
-        <div class="mb-24">
-            <h2 class="text-5xl font-heading text-white mb-4">Seleção <span class="text-gold">Signature</span></h2>
-            <div class="w-24 h-1 bg-gold"></div>
-        </div>
+<section id="catalogo" class="catalogo">
 
-        <div class="grid lg:grid-cols-12 items-center mb-32 group">
-            <div class="lg:col-span-7 overflow-hidden border border-gold/10 relative">
-                <img src="https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=1469&auto=format&fit=crop" 
-                     class="w-full h-[60vh] object-cover transition-transform duration-[1500ms] group-hover:scale-110">
-            </div>
-            <div class="lg:col-span-5 bg-[#0a0a0a] p-10 border border-gold/10 lg:-ml-20 relative z-10 shadow-2xl">
-                <span class="text-gold text-xs tracking-[4px] font-bold uppercase">A Joia da Coroa</span>
-                <h3 class="text-4xl text-white mt-4 font-heading">Picanha Wagyu A5</h3>
-                <p class="text-white/50 mt-6 leading-relaxed font-light">Marmoreio nível máximo. Uma explosão de sabor que derrete no paladar, importada das melhores linhagens japonesas.</p>
-                <div class="mt-8 text-3xl text-white font-light">R$ 489,00 <span class="text-sm opacity-50">/kg</span></div>
-                <a href="https://wa.me/5511999999999?text=Olá! Quero reservar a Picanha Wagyu A5" class="mt-10 w-full block text-center py-5 bg-oxblood text-white hover:bg-gold hover:text-black transition-all duration-700 font-bold uppercase text-xs tracking-widest">
-                    Garantir Corte
-                </a>
-            </div>
-        </div>
+<h2 style="text-align:center;color:#d4af37;margin-bottom:40px;">CORTES PREMIUM</h2>
 
-        <div class="grid lg:grid-cols-12 items-center mb-32 group">
-            <div class="lg:col-span-5 bg-[#0a0a0a] p-10 border border-gold/10 lg:-mr-20 relative z-10 order-2 lg:order-1 shadow-2xl">
-                <span class="text-gold text-xs tracking-[4px] font-bold uppercase">O Gigante</span>
-                <h3 class="text-4xl text-white mt-4 font-heading">Tomahawk Black Angus</h3>
-                <p class="text-white/50 mt-6 leading-relaxed font-light">Corte imponente com osso longo, maturado a seco por 21 dias (Dry Aged). Perfeito para quem busca intensidade de sabor e suculência ímpar.</p>
-                <div class="mt-8 text-3xl text-white font-light">R$ 210,00 <span class="text-sm opacity-50">/kg</span></div>
-                <a href="https://wa.me/5511999999999?text=Olá! Quero reservar o Tomahawk" class="mt-10 w-full block text-center py-5 bg-oxblood text-white hover:bg-gold hover:text-black transition-all duration-700 font-bold uppercase text-xs tracking-widest">
-                    Garantir Corte
-                </a>
-            </div>
-            <div class="lg:col-span-7 overflow-hidden border border-gold/10 relative order-1 lg:order-2">
-                <img src="https://images.unsplash.com/photo-1603048588665-791ca8aea617?q=80&w=1400&auto=format&fit=crop" 
-                     class="w-full h-[60vh] object-cover transition-transform duration-[1500ms] group-hover:scale-110">
-            </div>
-        </div>
+<div class="grid">
 
-        <div class="grid lg:grid-cols-12 items-center mb-32 group">
-            <div class="lg:col-span-7 overflow-hidden border border-gold/10 relative">
-                <img src="https://images.unsplash.com/photo-1546833999-b9f581a1996d?q=80&w=1400&auto=format&fit=crop" 
-                     class="w-full h-[60vh] object-cover transition-transform duration-[1500ms] group-hover:scale-110">
-            </div>
-            <div class="lg:col-span-5 bg-[#0a0a0a] p-10 border border-gold/10 lg:-ml-20 relative z-10 shadow-2xl">
-                <span class="text-gold text-xs tracking-[4px] font-bold uppercase">Clássico Argentino</span>
-                <h3 class="text-4xl text-white mt-4 font-heading">Bife Ancho Prime</h3>
-                <p class="text-white/50 mt-6 leading-relaxed font-light">Extraído da parte dianteira do contrafilé, apresenta uma gordura entremeada excepcional que garante maciez extrema durante o preparo na parrilla.</p>
-                <div class="mt-8 text-3xl text-white font-light">R$ 185,00 <span class="text-sm opacity-50">/kg</span></div>
-                <a href="https://wa.me/5511999999999?text=Olá! Quero reservar o Bife Ancho" class="mt-10 w-full block text-center py-5 bg-oxblood text-white hover:bg-gold hover:text-black transition-all duration-700 font-bold uppercase text-xs tracking-widest">
-                    Garantir Corte
-                </a>
-            </div>
-        </div>
+<div class="card">
+<img src="https://images.unsplash.com/photo-1604908176997-125f25cc6f3d">
+<h3>Wagyu A5</h3>
+<span class="preco">Sob consulta</span>
+<a href="https://wa.me/5511999999999?text=Quero Wagyu">Comprar</a>
+</div>
 
-        <div class="grid lg:grid-cols-12 items-center group">
-            <div class="lg:col-span-5 bg-[#0a0a0a] p-10 border border-gold/10 lg:-mr-20 relative z-10 order-2 lg:order-1 shadow-2xl">
-                <span class="text-gold text-xs tracking-[4px] font-bold uppercase">Delicadeza</span>
-                <h3 class="text-4xl text-white mt-4 font-heading">Carré de Cordeiro</h3>
-                <p class="text-white/50 mt-6 leading-relaxed font-light">Corte refinado, de sabor suave e textura aveludada. Acompanha perfeitamente crostas de ervas finas e reduções de vinho do porto.</p>
-                <div class="mt-8 text-3xl text-white font-light">R$ 240,00 <span class="text-sm opacity-50">/kg</span></div>
-                <a href="https://wa.me/5511999999999?text=Olá! Quero reservar o Carré de Cordeiro" class="mt-10 w-full block text-center py-5 bg-oxblood text-white hover:bg-gold hover:text-black transition-all duration-700 font-bold uppercase text-xs tracking-widest">
-                    Garantir Corte
-                </a>
-            </div>
-            <div class="lg:col-span-7 overflow-hidden border border-gold/10 relative order-1 lg:order-2">
-                <img src="https://images.unsplash.com/photo-1600891964092-4316c288032e?q=80&w=1400&auto=format&fit=crop" 
-                     class="w-full h-[60vh] object-cover transition-transform duration-[1500ms] group-hover:scale-110">
-            </div>
-        </div>
-    </section>
+<div class="card">
+<img src="https://images.unsplash.com/photo-1551183053-bf91a1d81141">
+<h3>Tomahawk</h3>
+<span class="preco">R$ 189,90/kg</span>
+<a href="https://wa.me/5511999999999?text=Quero Tomahawk">Comprar</a>
+</div>
 
-    <footer class="py-20 text-center border-t border-gold/10 mt-20">
-        <h2 class="text-gold font-heading text-3xl mb-4 tracking-[6px]">VORTEX</h2>
-        <p class="text-white/20 text-[10px] tracking-[4px] uppercase">© 2026 Vortex Steakhouse — Araçatuba/SP</p>
-    </footer>
+<div class="card">
+<img src="https://images.unsplash.com/photo-1617196038433-0c4c64a7b8e6">
+<h3>Bife Ancho</h3>
+<span class="preco">R$ 109,90/kg</span>
+<a href="https://wa.me/5511999999999?text=Quero Ancho">Comprar</a>
+</div>
 
-    <a href="https://wa.me/5511999999999" class="fixed bottom-8 right-8 w-16 h-16 bg-gold flex items-center justify-center rounded-full shadow-[0_0_40px_rgba(212,175,55,0.6)] hover:scale-110 transition-all duration-500 z-50">
-        <i data-lucide="message-circle" class="text-black w-8 h-8"></i>
-    </a>
+</div>
 
-    <script>
-        lucide.createIcons();
+</section>
 
-        window.addEventListener('scroll', () => {
-            const header = document.querySelector('header');
-            if (window.scrollY > 100) {
-                header.classList.add('bg-black', 'py-4', 'shadow-xl');
-                header.classList.remove('py-6');
-            } else {
-                header.classList.remove('bg-black', 'py-4', 'shadow-xl');
-                header.classList.add('py-6');
-            }
-        });
-    </script>
+<footer>
+© 2026 Vortex Steakhouse
+</footer>
+
+<a href="https://wa.me/5511999999999" class="whatsapp">WhatsApp</a>
+
 </body>
 </html>
