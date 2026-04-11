@@ -3,404 +3,130 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vortex Steakhouse | Boutique de Carnes Nobres</title>
+    <title>Vortex Steakhouse | Premium Experience</title>
     
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
     
+    <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
+    
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <script>
+        // CONFIGURAÇÃO DO TEMA (O que estava na sua imagem, agora do jeito certo para HTML)
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        gold: '#D4AF37',
+                        oxblood: '#4A0404',
+                    },
+                    fontFamily: {
+                        heading: ['Marcellus', 'serif'],
+                        sans: ['Montserrat', 'sans-serif'],
+                    },
+                    keyframes: {
+                        zoomHero: {
+                            '0%': { transform: 'scale(1.1)' },
+                            '100%': { transform: 'scale(1.2)' }
+                        }
+                    },
+                    animation: {
+                        zoomHero: 'zoomHero 20s ease-in-out infinite alternate'
+                    }
+                }
+            }
+        }
+    </script>
+
     <style>
-        :root {
-            --bg: #050505;
-            --surface: #0f0f0f;
-            --gold: #c7a15a;
-            --gold-light: #e6c58d;
-            --red: #6e0d0d;
-            --white: #ffffff;
-            --text-gray: #b0b0b0;
-            --border: rgba(199, 161, 90, 0.15);
-            --transition: all 0.6s cubic-bezier(0.22, 1, 0.36, 1);
-        }
-
-        /* Reset & Base */
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        /* Ajuste de scroll e suavidade */
         html { scroll-behavior: smooth; }
-        body {
-            font-family: 'Montserrat', sans-serif;
-            background-color: var(--bg);
-            color: var(--white);
-            line-height: 1.6;
-            overflow-x: hidden;
-            -webkit-font-smoothing: antialiased;
-        }
-
-        /* Typography */
-        h1, h2, h3, .logo { font-family: 'Marcellus', serif; text-transform: uppercase; letter-spacing: 0.15em; }
-        p { color: var(--text-gray); font-weight: 300; }
-
-        /* Header */
-        header {
-            position: fixed;
-            top: 0; width: 100%;
-            padding: 40px 8%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            z-index: 1000;
-            transition: var(--transition);
-        }
-
-        header.scrolled {
-            padding: 20px 8%;
-            background: rgba(5, 5, 5, 0.85);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid var(--border);
-        }
-
-        .logo { font-size: 1.8rem; color: var(--gold); text-decoration: none; }
-        
-        .nav-links { display: flex; gap: 40px; }
-        .nav-links a {
-            text-decoration: none;
-            color: var(--white);
-            font-size: 0.75rem;
-            letter-spacing: 2px;
-            font-weight: 500;
-            transition: 0.3s;
-            position: relative;
-        }
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px; left: 0;
-            width: 0; height: 1px;
-            background: var(--gold);
-            transition: 0.3s;
-        }
-        .nav-links a:hover::after { width: 100%; }
-
-        /* Hero Section */
-        .hero {
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            text-align: center;
-            padding: 0 5%;
-        }
-
-        .hero-video {
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            object-fit: cover;
-            z-index: -1;
-            opacity: 0.5;
-        }
-
-        .hero-overlay {
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(to bottom, rgba(0,0,0,0.8), transparent, var(--bg));
-            z-index: 0;
-        }
-
-        .hero-content { position: relative; z-index: 1; max-width: 900px; }
-        .hero h1 { font-size: clamp(2.5rem, 6vw, 5rem); margin-bottom: 20px; line-height: 1.1; }
-        .hero p { font-size: 1.1rem; letter-spacing: 5px; margin-bottom: 40px; color: var(--gold); }
-
-        .btn-premium {
-            display: inline-block;
-            padding: 20px 50px;
-            background: transparent;
-            border: 1px solid var(--gold);
-            color: var(--gold);
-            text-decoration: none;
-            font-size: 0.8rem;
-            letter-spacing: 3px;
-            font-weight: 600;
-            transition: var(--transition);
-            position: relative;
-        }
-
-        .btn-premium:hover {
-            background: var(--gold);
-            color: #000;
-            box-shadow: 0 0 40px rgba(199, 161, 90, 0.3);
-            transform: translateY(-3px);
-        }
-
-        /* Section Global */
-        section { padding: 120px 8%; opacity: 0; transform: translateY(30px); transition: var(--transition); }
-        section.reveal { opacity: 1; transform: translateY(0); }
-        .section-header { text-align: center; margin-bottom: 80px; }
-        .section-header h2 { font-size: 2.5rem; margin-bottom: 15px; }
-        .section-header .line { width: 60px; height: 2px; background: var(--gold); margin: 0 auto; }
-
-        /* Categories Grid */
-        .grid-categories {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
-        }
-
-        .category-card {
-            height: 450px;
-            position: relative;
-            overflow: hidden;
-            display: flex;
-            align-items: flex-end;
-            padding: 40px;
-            text-decoration: none;
-            border: 1px solid var(--border);
-        }
-
-        .category-img {
-            position: absolute;
-            inset: 0;
-            background-size: cover;
-            background-position: center;
-            transition: transform 1s ease;
-            z-index: -1;
-        }
-        
-        .category-card:hover .category-img { transform: scale(1.1); }
-        .category-card::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
-        }
-
-        .category-content { position: relative; z-index: 1; }
-        .category-content h3 { font-size: 1.5rem; color: var(--gold); }
-
-        /* Products Section */
-        .product-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 40px;
-        }
-
-        .product-item {
-            background: var(--surface);
-            border: 1px solid var(--border);
-            padding: 40px;
-            transition: var(--transition);
-            position: relative;
-        }
-
-        .product-item:hover { border-color: var(--gold); transform: translateY(-10px); }
-        .product-item h4 { font-size: 1.4rem; margin-bottom: 10px; color: var(--gold-light); }
-        .product-item .price { font-size: 1.2rem; color: var(--white); margin-bottom: 25px; display: block; }
-        
-        .btn-order {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 100%;
-            padding: 15px;
-            background: var(--red);
-            color: white;
-            text-decoration: none;
-            font-size: 0.8rem;
-            letter-spacing: 2px;
-            font-weight: 600;
-            transition: 0.3s;
-        }
-        .btn-order:hover { filter: brightness(1.3); }
-
-        /* Social Proof */
-        .review-card {
-            background: rgba(255,255,255,0.03);
-            padding: 40px;
-            border-left: 3px solid var(--gold);
-        }
-        .stars { color: var(--gold); margin-bottom: 15px; }
-
-        /* Whatsapp Button */
-        .whatsapp-float {
-            position: fixed;
-            bottom: 40px;
-            right: 40px;
-            width: 65px;
-            height: 65px;
-            background: #25D366;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 10px 30px rgba(37, 211, 102, 0.4);
-            z-index: 999;
-            transition: var(--transition);
-        }
-        .whatsapp-float:hover { transform: scale(1.1) rotate(10deg); }
-
-        /* Footer */
-        footer {
-            padding: 80px 8% 40px;
-            background: #000;
-            text-align: center;
-            border-top: 1px solid var(--border);
-        }
-        .footer-logo { font-size: 2rem; color: var(--gold); margin-bottom: 20px; display: block; }
-        .footer-info { color: var(--text-gray); font-size: 0.8rem; letter-spacing: 1px; }
-
-        /* Responsive */
-        @media (max-width: 992px) {
-            .grid-categories { grid-template-columns: 1fr; }
-            .nav-links { display: none; }
-            .hero h1 { font-size: 3rem; }
-            section { padding: 80px 5%; }
-        }
+        .font-heading { font-family: 'Marcellus', serif; }
     </style>
 </head>
-<body>
+<body class="bg-black text-white font-sans selection:bg-gold selection:text-black">
 
-    <header id="header">
-        <a href="#" class="logo">Vortex</a>
-        <nav class="nav-links">
-            <a href="#experiencia">EXPERIÊNCIA</a>
-            <a href="#cortes">CORTES</a>
-            <a href="#boutique">BOUTIQUE</a>
-            <a href="#contato">CONTATO</a>
+    <header class="fixed top-0 w-full z-50 transition-all duration-500 p-6 flex justify-between items-center bg-gradient-to-b from-black/80 to-transparent">
+        <a href="#" class="text-gold font-heading text-2xl tracking-[4px]">VORTEX</a>
+        <nav class="hidden md:flex gap-8 text-[10px] tracking-[3px] font-bold">
+            <a href="#selecao" class="hover:text-gold transition">SELEÇÃO</a>
+            <a href="https://wa.me/5511999999999" class="hover:text-gold transition">RESERVAS</a>
         </nav>
     </header>
 
-    <section class="hero" style="opacity:1; transform:none;">
-        <video class="hero-video" autoplay muted loop playsinline>
-            <source src="https://cdn.coverr.co/videos/coverr-grilling-meat-1576/1080p.mp4" type="video/mp4">
-        </video>
-        <div class="hero-overlay"></div>
-        <div class="hero-content">
-            <p>SUPREMACIA EM GOURMET STEAKS</p>
-            <h1>O DESTINO DOS <br> VERDADEIROS APRECIADORES</h1>
-            <a href="#boutique" class="btn-premium">CONHECER SELEÇÃO</a>
+    <section class="relative h-screen flex items-center overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1551028150-64b9f398f678?q=80&w=1400&auto=format&fit=crop" 
+                 class="w-full h-full object-cover animate-zoomHero">
+            <div class="absolute inset-0 bg-gradient-to-b from-black/90 via-black/40 to-black"></div>
         </div>
-    </section>
 
-    <section id="experiencia">
-        <div class="section-header">
-            <h2>Padrão de Excelência</h2>
-            <div class="line"></div>
-        </div>
-        <div class="grid-categories">
-            <div class="category-card">
-                <div class="category-img" style="background-image: url('https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=1469&auto=format&fit=crop');"></div>
-                <div class="category-content">
-                    <h3>ORIGEM CONTROLADA</h3>
-                    <p>Linhagens britânicas com rastreabilidade total.</p>
-                </div>
-            </div>
-            <div class="category-card" style="border-top: 1px solid var(--gold);">
-                <div class="category-img" style="background-image: url('https://images.unsplash.com/photo-1603048588665-791ca8aea617?q=80&w=1400&auto=format&fit=crop');"></div>
-                <div class="category-content">
-                    <h3>CURA ARTESANAL</h3>
-                    <p>Processos de maturação que elevam o sabor ao ápice.</p>
-                </div>
-            </div>
-            <div class="category-card">
-                <div class="category-img" style="background-image: url('https://images.unsplash.com/photo-1551028150-64b9f398f678?q=80&w=1400&auto=format&fit=crop');"></div>
-                <div class="category-content">
-                    <h3>ATENDIMENTO VIP</h3>
-                    <p>Consultoria personalizada para sua experiência.</p>
-                </div>
+        <div class="relative z-10 max-w-7xl mx-auto px-6 w-full">
+            <span class="text-gold tracking-[6px] text-xs font-bold uppercase mb-4 block">Premium Steakhouse</span>
+            <h1 class="font-heading text-6xl md:text-8xl leading-[0.9] mb-8">
+                A Experiência <br>
+                <span class="text-gold">do Sabor</span>
+            </h1>
+            <p class="text-white/60 max-w-lg text-lg mb-10 font-light">
+                Cortes nobres selecionados para quem não aceita nada menos que a perfeição absoluta.
+            </p>
+            <div class="flex flex-wrap gap-6">
+                <a href="#selecao" class="px-12 py-5 border border-gold text-gold hover:bg-gold hover:text-black transition-all duration-700 tracking-widest text-xs font-bold uppercase">
+                    Explorar Seleção
+                </a>
+                <a href="https://wa.me/5511999999999" class="px-12 py-5 bg-oxblood text-white hover:border-gold border border-transparent transition-all duration-700 tracking-widest text-xs font-bold uppercase">
+                    Reservar Agora
+                </a>
             </div>
         </div>
     </section>
 
-    <section id="boutique" style="background: #080808;">
-        <div class="section-header">
-            <h2>Seleção Signature</h2>
-            <p>Disponibilidade limitada. Qualidade absoluta.</p>
-            <div class="line"></div>
+    <section id="selecao" class="max-w-7xl mx-auto px-6 py-32">
+        <div class="mb-24">
+            <h2 class="text-5xl font-heading text-white mb-4">Seleção <span class="text-gold">Signature</span></h2>
+            <div class="w-24 h-1 bg-gold"></div>
         </div>
-        
-        <div class="product-grid">
-            <div class="product-item">
-                <h4>WAGYU A5 RIBEYE</h4>
-                <p>O ápice do marmoreio mundial. Uma experiência sensorial única que derrete ao paladar.</p>
-                <span class="price">Sob Consulta</span>
-                <a href="https://wa.me/5511999999999?text=Gostaria%20de%20encomendar%20o%20Wagyu%20A5" class="btn-order">SOLICITAR VIA WHATSAPP</a>
-            </div>
 
-            <div class="product-item">
-                <h4>TOMAHAWK BLACK ANGUS</h4>
-                <p>O corte imponente. Maturação de 21 dias para maciez e sabor intensos.</p>
-                <span class="price">R$ 189,90 /kg</span>
-                <a href="https://wa.me/5511999999999?text=Quero%20o%20Tomahawk%20Black%20Angus" class="btn-order">PEDIR AGORA</a>
+        <div class="grid lg:grid-cols-12 items-center mb-40 group">
+            <div class="lg:col-span-7 overflow-hidden border border-gold/10 relative">
+                <img src="https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=1469&auto=format&fit=crop" 
+                     class="w-full h-[60vh] object-cover transition-transform duration-[1500ms] group-hover:scale-110">
             </div>
-
-            <div class="product-item">
-                <h4>KIT VORTEX EXPERIENCE</h4>
-                <p>Seleção do mestre: 1 Picanha, 1 Chorizo e 1 Sal Malden Original.</p>
-                <span class="price">R$ 450,00</span>
-                <a href="https://wa.me/5511999999999?text=Gostaria%20do%20Kit%20Vortex%20Experience" class="btn-order">RESERVAR KIT</a>
+            <div class="lg:col-span-5 bg-[#0a0a0a] p-10 border border-gold/10 lg:-ml-20 relative z-10">
+                <span class="text-gold text-xs tracking-[4px] font-bold uppercase">A Joia da Coroa</span>
+                <h3 class="text-4xl text-white mt-4 font-heading">Picanha Wagyu A5</h3>
+                <p class="text-white/50 mt-6 leading-relaxed font-light">Marmoreio nível máximo. Uma explosão de sabor que derrete no paladar.</p>
+                <div class="mt-8 text-3xl text-white font-light">R$ 489,00 <span class="text-sm opacity-50">/kg</span></div>
+                <a href="https://wa.me/5511999999999" class="mt-10 w-full block text-center py-5 bg-oxblood text-white hover:bg-gold hover:text-black transition-all duration-700 font-bold uppercase text-xs tracking-widest">
+                    Garantir Corte
+                </a>
             </div>
         </div>
     </section>
 
-    <section id="reviews">
-        <div class="section-header">
-            <h2>Vozes da Experiência</h2>
-            <div class="line"></div>
-        </div>
-        <div class="product-grid">
-            <div class="review-card">
-                <div class="stars">★★★★★</div>
-                <p>"Incomparável. A Vortex não vende carne, vende um evento gastronômico. O atendimento via WhatsApp é impecável."</p>
-                <strong style="display:block; margin-top:20px; color:var(--gold);">MARCUS V.</strong>
-            </div>
-            <div class="review-card">
-                <div class="stars">★★★★★</div>
-                <p>"Finalmente um lugar que entende de marmoreio e maturação. O Tomahawk é o melhor que já comi."</p>
-                <strong style="display:block; margin-top:20px; color:var(--gold);">DR. HELENA S.</strong>
-            </div>
-        </div>
-    </section>
-
-    <footer>
-        <span class="logo footer-logo">Vortex</span>
-        <p class="footer-info">© 2026 VORTEX STEAKHOUSE. TODOS OS DIREITOS RESERVADOS.</p>
-        <p class="footer-info" style="margin-top:10px; opacity:0.5;">DESIGNED FOR EXCELLENCE.</p>
+    <footer class="py-20 text-center border-t border-gold/10">
+        <h2 class="text-gold font-heading text-3xl mb-4 tracking-[6px]">VORTEX</h2>
+        <p class="text-white/20 text-[10px] tracking-[4px] uppercase">© 2026 Vortex Steakhouse — Araçatuba/SP</p>
     </footer>
 
-    <a href="https://wa.me/5511999999999" class="whatsapp-float" target="_blank">
-        <svg width="30" height="30" viewBox="0 0 24 24" fill="white"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.417-.003 6.557-5.338 11.892-11.893 11.892-1.997-.001-3.951-.5-5.688-1.448l-6.305 1.652zm6.599-3.835c1.544.913 3.415 1.396 5.321 1.397h.005c5.446 0 9.877-4.43 9.88-9.875.001-2.639-1.025-5.12-2.887-6.984s-4.347-2.89-6.987-2.89c-5.447 0-9.878 4.43-9.881 9.874-.001 1.93.541 3.81 1.565 5.423l-.98 3.58 3.674-.963zm10.511-7.108c-.282-.141-1.669-.824-1.928-.918-.258-.095-.446-.141-.634.141-.188.281-.728.918-.893 1.103-.164.185-.328.209-.611.069-.282-.141-1.194-.44-2.276-1.408-.841-.75-1.409-1.677-1.573-1.959-.164-.282-.017-.435.124-.575.127-.126.282-.328.423-.493.141-.164.188-.282.282-.47.094-.188.047-.353-.023-.494-.071-.141-.634-1.528-.869-2.093-.23-.553-.463-.478-.635-.487-.164-.008-.353-.01-.541-.01s-.494.07-.753.353c-.259.282-.988.964-.988 2.35s1.011 2.726 1.152 2.915c.141.188 1.989 3.037 4.818 4.257.673.291 1.199.464 1.609.595.677.215 1.292.185 1.779.112.543-.081 1.669-.682 1.904-1.34.235-.658.235-1.222.164-1.341-.07-.119-.258-.189-.54-.33z"/></svg>
+    <a href="https://wa.me/5511999999999" class="fixed bottom-8 right-8 w-16 h-16 bg-gold flex items-center justify-center rounded-full shadow-[0_0_40px_rgba(212,175,55,0.6)] hover:scale-110 transition-all duration-500 z-50">
+        <i data-lucide="message-circle" class="text-black w-8 h-8"></i>
     </a>
 
     <script>
-        // Header Scroll Effect
+        // Inicializa os ícones
+        lucide.createIcons();
+
+        // Efeito no header ao rolar
         window.addEventListener('scroll', () => {
-            const header = document.getElementById('header');
+            const header = document.querySelector('header');
             if (window.scrollY > 100) {
-                header.classList.add('scrolled');
+                header.classList.add('bg-black', 'py-4 shadow-xl');
+                header.classList.remove('py-6');
             } else {
-                header.classList.remove('scrolled');
+                header.classList.remove('bg-black', 'py-4 shadow-xl');
+                header.classList.add('py-6');
             }
-        });
-
-        // Reveal on Scroll
-        const observerOptions = { threshold: 0.1 };
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('reveal');
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('section').forEach(section => {
-            observer.observe(section);
-        });
-
-        // Hover Effect on Product Items
-        document.querySelectorAll('.product-item').forEach(item => {
-            item.addEventListener('mouseenter', () => {
-                item.style.backgroundColor = '#151515';
-            });
-            item.addEventListener('mouseleave', () => {
-                item.style.backgroundColor = 'var(--surface)';
-            });
         });
     </script>
 </body>
