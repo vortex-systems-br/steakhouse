@@ -1,122 +1,287 @@
-<section class="hero">
-    <div class="bg"></div>
-    <div class="overlay"></div>
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <div class="hero-content">
-        <span class="tag">EXPERIÊNCIA PREMIUM</span>
+<title>Vortex Steakhouse | Premium</title>
 
-        <h1>
-            A ARTE<br>
-            <span>DA CARNE</span>
-        </h1>
-
-        <p>Exclusividade • Qualidade • Experiência</p>
-
-        <a href="#produtos" class="cta">VER CATÁLOGO</a>
-    </div>
-</section>
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
+:root{
+--bg:#050505;
+--gold:#c7a15a;
+--red:#8a1111;
+--text:#eaeaea;
+}
+
+*{margin:0;padding:0;box-sizing:border-box;}
+
+body{
+font-family:'Montserrat',sans-serif;
+background:var(--bg);
+color:var(--text);
+overflow-x:hidden;
+}
+
+/* HEADER */
+header{
+position:fixed;
+width:100%;
+padding:20px 6%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+background:rgba(0,0,0,0.5);
+backdrop-filter:blur(12px);
+z-index:1000;
+transition:.3s;
+}
+
+header.scrolled{
+padding:12px 6%;
+background:#000;
+}
+
+.logo{
+font-family:'Marcellus';
+letter-spacing:4px;
+color:var(--gold);
+}
+
+nav a{
+margin-left:25px;
+color:#fff;
+text-decoration:none;
+font-size:.75rem;
+letter-spacing:2px;
+}
+
+/* HERO VIDEO */
 .hero{
-    height:100vh;
-    position:relative;
-    overflow:hidden;
+height:100vh;
+position:relative;
+overflow:hidden;
 }
 
-/* BACKGROUND COM PARALLAX */
-.bg{
-    position:absolute;
-    width:110%;
-    height:110%;
-    background:url('https://images.unsplash.com/photo-1603048297172-c92544798d5a') center/cover no-repeat;
-    transform:scale(1.1);
-    transition:transform 0.2s ease-out;
+.hero video{
+position:absolute;
+width:100%;
+height:100%;
+object-fit:cover;
 }
 
-/* OVERLAY CINEMATOGRÁFICO */
 .overlay{
-    position:absolute;
-    width:100%;
-    height:100%;
-    background:radial-gradient(circle at center, rgba(0,0,0,0.2), rgba(0,0,0,0.95));
+position:absolute;
+width:100%;
+height:100%;
+background:linear-gradient(to bottom, rgba(0,0,0,0.5), #000);
 }
 
-/* CONTEÚDO */
 .hero-content{
-    position:relative;
-    z-index:2;
-    height:100%;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
-}
-
-.tag{
-    letter-spacing:4px;
-    font-size:0.7rem;
-    color:#888;
+position:relative;
+z-index:2;
+height:100%;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
 }
 
 .hero h1{
-    font-family:'Marcellus', serif;
-    font-size:5rem;
-    letter-spacing:6px;
+font-family:'Marcellus';
+font-size:5rem;
+letter-spacing:5px;
 }
 
-.hero h1 span{
-    color:#c7a15a;
+.hero p{
+margin:20px 0;
+color:#aaa;
+letter-spacing:3px;
 }
 
-/* BOTÃO */
 .cta{
-    margin-top:30px;
-    padding:15px 50px;
-    border:1px solid #c7a15a;
-    color:#c7a15a;
-    text-decoration:none;
-    letter-spacing:2px;
-    transition:.4s;
-    position:relative;
+padding:15px 50px;
+border:1px solid var(--gold);
+color:var(--gold);
+text-decoration:none;
+transition:.4s;
 }
 
-.cta::after{
-    content:'';
-    position:absolute;
-    width:0;
-    height:100%;
-    left:0;
-    top:0;
-    background:#c7a15a;
-    transition:.4s;
-    z-index:-1;
+.cta:hover{
+background:var(--gold);
+color:#000;
 }
 
-.cta:hover::after{width:100%;}
-.cta:hover{color:#000;}
+/* SECTIONS */
+.section{
+padding:100px 6%;
+max-width:1200px;
+margin:auto;
+}
 
-/* EFEITO DE LUZ DINÂMICO */
-.hero::before{
-    content:'';
-    position:absolute;
-    width:600px;
-    height:600px;
-    background:radial-gradient(circle, rgba(199,161,90,0.2), transparent);
-    top:50%;
-    left:50%;
-    transform:translate(-50%,-50%);
-    pointer-events:none;
+/* GRID */
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:30px;
+}
+
+/* CARDS */
+.card{
+padding:30px;
+background:rgba(255,255,255,0.03);
+border:1px solid rgba(255,255,255,0.05);
+border-radius:10px;
+transition:.4s;
+}
+
+.card:hover{
+transform:scale(1.05);
+border-color:var(--gold);
+}
+
+/* PRODUTOS */
+.product{
+background:#080808;
+padding:25px;
+border-radius:10px;
+transition:.3s;
+}
+
+.product:hover{
+transform:scale(1.03);
+border:1px solid var(--gold);
+}
+
+.btn-buy{
+margin-top:15px;
+display:inline-block;
+background:var(--red);
+padding:12px 25px;
+color:#fff;
+text-decoration:none;
+font-size:.8rem;
+}
+
+/* REVIEWS */
+.review{
+padding:20px;
+border-left:3px solid var(--gold);
+background:rgba(255,255,255,0.02);
+}
+
+/* WHATS */
+.whatsapp{
+position:fixed;
+bottom:20px;
+right:20px;
+background:#25D366;
+padding:15px;
+border-radius:50%;
+color:#fff;
+text-decoration:none;
+}
+
+/* FOOTER */
+footer{
+text-align:center;
+padding:50px;
+color:#666;
+font-size:.8rem;
 }
 </style>
+</head>
+
+<body>
+
+<header id="header">
+<div class="logo">VORTEX</div>
+<nav>
+<a href="#cortes">CORTES</a>
+<a href="#produtos">PRODUTOS</a>
+<a href="#reviews">AVALIAÇÕES</a>
+</nav>
+</header>
+
+<section class="hero">
+<video autoplay muted loop>
+<source src="https://cdn.coverr.co/videos/coverr-grilling-meat-1576/1080p.mp4" type="video/mp4">
+</video>
+
+<div class="overlay"></div>
+
+<div class="hero-content">
+<h1>A ARTE DA CARNE</h1>
+<p>Exclusividade • Qualidade • Experiência</p>
+<a href="#produtos" class="cta">VER CATÁLOGO</a>
+</div>
+</section>
+
+<section class="section" id="cortes">
+<div class="grid">
+<div class="card">
+<h3>Cortes Premium</h3>
+<p>Seleção rigorosa com padrão internacional.</p>
+</div>
+
+<div class="card">
+<h3>Kits Gourmet</h3>
+<p>Praticidade com alto padrão.</p>
+</div>
+
+<div class="card">
+<h3>Entrega Rápida</h3>
+<p>Receba com qualidade e velocidade.</p>
+</div>
+</div>
+</section>
+
+<section class="section" id="produtos">
+<div class="grid">
+
+<div class="product">
+<h4>Picanha Premium</h4>
+<p>Corte selecionado com maciez superior.</p>
+<a href="https://wa.me/5518SEUNUMERO?text=Quero%20Picanha" class="btn-buy">PEDIR</a>
+</div>
+
+<div class="product">
+<h4>Kit Churrasco Elite</h4>
+<p>Completo para 8 pessoas.</p>
+<a href="https://wa.me/5518SEUNUMERO?text=Quero%20Kit" class="btn-buy">PEDIR</a>
+</div>
+
+</div>
+</section>
+
+<section class="section" id="reviews">
+<div class="grid">
+
+<div class="review">
+⭐️⭐️⭐️⭐️⭐️ Melhor carne de Araçatuba.
+</div>
+
+<div class="review">
+⭐️⭐️⭐️⭐️⭐️ Qualidade absurda.
+</div>
+
+</div>
+</section>
+
+<footer>
+© 2026 Vortex Steakhouse — Premium Experience
+</footer>
+
+<a href="https://wa.me/5518SEUNUMERO" class="whatsapp">💬</a>
 
 <script>
-const bg = document.querySelector('.bg');
-
-document.addEventListener('mousemove', (e)=>{
-    let x = (e.clientX / window.innerWidth - 0.5) * 20;
-    let y = (e.clientY / window.innerHeight - 0.5) * 20;
-
-    bg.style.transform = `scale(1.1) translate(${x}px, ${y}px)`;
+window.addEventListener("scroll",()=>{
+document.getElementById("header").classList.toggle("scrolled",window.scrollY>50);
 });
 </script>
+
+</body>
+</html>
