@@ -1,194 +1,1576 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vortex Steakhouse | Premium Experience Beyond Taste</title>
+    
+    <!-- Premium Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800;900&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ============================================
+           VORTEX STEAKHOUSE - COMPLETE PREMIUM STYLES
+           ALL-IN-ONE FILE - LUXURY DARK THEME
+           ============================================ */
 
-<title>Vortex Steakhouse</title>
+        :root {
+            --dark-bg: #0a0a0a;
+            --dark-bg-secondary: #0f0f0f;
+            --dark-card: #141414;
+            --dark-card-hover: #1a1a1a;
+            --gold: #c9a96e;
+            --gold-light: #e8d4b8;
+            --gold-dark: #a68860;
+            --white: #ffffff;
+            --gray-light: #d0d0d0;
+            --gray-medium: #888888;
+            --gray-dark: #333333;
+            --red-dark: #8b0000;
+            --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-slow: 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+        /* ============================================
+           RESET & BASE STYLES
+           ============================================ */
 
-<style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-* {margin:0;padding:0;box-sizing:border-box;}
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 80px;
+        }
 
-body {
-background:#0a0a0a;
-color:#fff;
-font-family:Inter;
-}
+        body {
+            background: linear-gradient(135deg, var(--dark-bg) 0%, var(--dark-bg-secondary) 100%);
+            color: var(--white);
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 400;
+            line-height: 1.7;
+            overflow-x: hidden;
+            position: relative;
+        }
 
-/* HEADER */
-header {
-position:fixed;
-width:100%;
-padding:20px 5%;
-display:flex;
-justify-content:space-between;
-background:rgba(0,0,0,0.7);
-backdrop-filter:blur(10px);
-z-index:1000;
-}
+        /* Premium Background Texture */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 10% 20%, rgba(201, 169, 110, 0.03) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(139, 0, 0, 0.02) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: -1;
+        }
 
-.logo {
-color:#d4af37;
-font-family:'Playfair Display';
-letter-spacing:3px;
-}
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color var(--transition);
+        }
 
-nav a {
-color:#aaa;
-margin-left:20px;
-text-decoration:none;
-font-size:12px;
-}
+        /* ============================================
+           TYPOGRAPHY
+           ============================================ */
 
-nav a:hover {color:#d4af37;}
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 800;
+            line-height: 1.1;
+            letter-spacing: 2px;
+        }
 
-/* HERO */
-.hero {
-height:100vh;
-background:url('https://images.unsplash.com/photo-1600891964599-f61ba0e24092') center/cover;
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
-text-align:center;
-}
+        h1 { font-size: 5rem; }
+        h2 { font-size: 3.5rem; }
+        h3 { font-size: 1.8rem; }
+        h4 { font-size: 1.4rem; }
 
-.hero h1 {
-font-size:60px;
-font-family:'Playfair Display';
-}
+        p {
+            font-size: 1rem;
+            color: var(--gray-light);
+            margin-bottom: 1rem;
+        }
 
-.hero p {
-color:#ccc;
-margin:20px 0;
-}
+        .section-title {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            color: var(--white);
+            letter-spacing: 2px;
+        }
 
-.btn {
-border:1px solid #d4af37;
-padding:15px 40px;
-color:#d4af37;
-text-decoration:none;
-}
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: var(--gray-medium);
+            letter-spacing: 1px;
+            margin-bottom: 3rem;
+        }
 
-.btn:hover {
-background:#d4af37;
-color:black;
-}
+        /* ============================================
+           CONTAINER & LAYOUT
+           ============================================ */
 
-/* CATALOGO */
-.catalogo {
-padding:100px 5%;
-}
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
 
-.grid {
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-gap:30px;
-}
+        section {
+            padding: 120px 0;
+        }
 
-.card {
-background:#111;
-border:1px solid rgba(212,175,55,0.1);
-}
+        /* ============================================
+           NAVBAR - PREMIUM
+           ============================================ */
 
-.card img {
-width:100%;
-height:200px;
-object-fit:cover;
-}
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(201, 169, 110, 0.1);
+            z-index: 1000;
+            padding: 1.5rem 0;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+            transition: all var(--transition-slow);
+        }
 
-.card h3 {padding:10px;}
+        .navbar:hover {
+            background: rgba(10, 10, 10, 0.98);
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.7);
+        }
 
-.preco {
-padding:10px;
-color:#d4af37;
-}
+        .navbar-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
-.card a {
-display:block;
-padding:10px;
-text-align:center;
-color:#d4af37;
-text-decoration:none;
-}
+        .logo {
+            display: flex;
+            flex-direction: column;
+        }
 
-/* WHATS */
-.whatsapp {
-position:fixed;
-bottom:20px;
-right:20px;
-background:#25D366;
-padding:15px;
-border-radius:50px;
-color:#fff;
-text-decoration:none;
-}
+        .logo-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--gold);
+            letter-spacing: 3px;
+            transition: all var(--transition-slow);
+        }
 
-/* FOOTER */
-footer {
-text-align:center;
-padding:40px;
-color:#666;
-}
+        .logo-text:hover {
+            color: var(--gold-light);
+            text-shadow: 0 0 20px rgba(201, 169, 110, 0.3);
+        }
 
-</style>
+        .logo-tagline {
+            font-size: 0.65rem;
+            color: var(--gray-medium);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 3rem;
+        }
+
+        .nav-link {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-weight: 500;
+            color: var(--gray-light);
+            position: relative;
+            transition: color var(--transition);
+            cursor: pointer;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--gold), var(--gold-light));
+            transition: width var(--transition-slow);
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: var(--gold);
+        }
+
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 100%;
+        }
+
+        .cta-nav {
+            border: 2px solid var(--gold);
+            padding: 10px 24px;
+            border-radius: 50px;
+            transition: all var(--transition);
+        }
+
+        .cta-nav:hover {
+            background: var(--gold);
+            color: var(--dark-bg);
+            box-shadow: 0 10px 30px rgba(201, 169, 110, 0.3);
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 6px;
+        }
+
+        .hamburger span {
+            width: 28px;
+            height: 3px;
+            background: var(--gold);
+            transition: 0.3s;
+            border-radius: 2px;
+        }
+
+        /* ============================================
+           HERO SECTION - CINEMATIC
+           ============================================ */
+
+        .hero {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            margin-top: 80px;
+        }
+
+        .hero-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+        }
+
+        .hero-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            animation: zoomInHero 20s ease-out;
+        }
+
+        @keyframes zoomInHero {
+            from { transform: scale(1.05); }
+            to { transform: scale(1); }
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                180deg,
+                rgba(0, 0, 0, 0.4) 0%,
+                rgba(0, 0, 0, 0.6) 50%,
+                rgba(0, 0, 0, 0.8) 100%
+            );
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            animation: fadeInUp 1s ease-out 0.3s both;
+            max-width: 800px;
+        }
+
+        .hero-title {
+            font-size: 5rem;
+            font-weight: 800;
+            color: var(--white);
+            margin-bottom: 1.5rem;
+            letter-spacing: 3px;
+            text-shadow: 0 10px 40px rgba(0, 0, 0, 0.7);
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            color: var(--gold-light);
+            margin-bottom: 3rem;
+            font-weight: 300;
+            letter-spacing: 2px;
+        }
+
+        .btn-hero {
+            display: inline-block;
+            padding: 18px 48px;
+            border: 2px solid var(--gold);
+            background: var(--gold);
+            color: var(--dark-bg);
+            font-weight: 700;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all var(--transition-slow);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            box-shadow: 0 20px 60px rgba(201, 169, 110, 0.3);
+            text-decoration: none;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .btn-hero:hover {
+            background: var(--gold-light);
+            transform: translateY(-4px);
+            box-shadow: 0 30px 80px rgba(201, 169, 110, 0.5);
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 2;
+        }
+
+        .scroll-indicator span {
+            display: block;
+            width: 24px;
+            height: 40px;
+            border: 2px solid var(--gold);
+            border-radius: 12px;
+            position: relative;
+        }
+
+        .scroll-indicator span::after {
+            content: '';
+            position: absolute;
+            top: 8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 12px;
+            background: var(--gold);
+            border-radius: 1px;
+            animation: scrollIndicator 2s infinite;
+        }
+
+        @keyframes scrollIndicator {
+            0% {
+                opacity: 1;
+                transform: translateX(-50%) translateY(0);
+            }
+            100% {
+                opacity: 0;
+                transform: translateX(-50%) translateY(16px);
+            }
+        }
+
+        /* ============================================
+           FEATURED SECTION
+           ============================================ */
+
+        .featured-section {
+            padding: 120px 0;
+            background: linear-gradient(135deg, rgba(20, 20, 20, 0.5), rgba(40, 40, 40, 0.3));
+            border-top: 1px solid rgba(201, 169, 110, 0.1);
+            border-bottom: 1px solid rgba(201, 169, 110, 0.1);
+        }
+
+        .featured-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+        }
+
+        /* ============ FEATURED CARDS ============ */
+
+        .featured-card {
+            background: var(--dark-card);
+            border: 1px solid rgba(201, 169, 110, 0.15);
+            overflow: hidden;
+            border-radius: 8px;
+            transition: all var(--transition-slow);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            display: flex;
+            flex-direction: column;
+            opacity: 0;
+            transform: translateY(60px);
+        }
+
+        .featured-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+            animation: fadeInUp 1s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+        }
+
+        .featured-card:nth-child(1).visible { animation-delay: 0.1s; }
+        .featured-card:nth-child(2).visible { animation-delay: 0.2s; }
+        .featured-card:nth-child(3).visible { animation-delay: 0.3s; }
+        .featured-card:nth-child(4).visible { animation-delay: 0.4s; }
+        .featured-card:nth-child(5).visible { animation-delay: 0.5s; }
+        .featured-card:nth-child(6).visible { animation-delay: 0.6s; }
+
+        .featured-card:hover {
+            border-color: var(--gold);
+            box-shadow: 
+                0 30px 80px rgba(201, 169, 110, 0.2),
+                0 0 30px rgba(201, 169, 110, 0.1);
+            transform: translateY(-12px);
+        }
+
+        /* Card Image with Zoom Effect */
+        .card-image-wrapper {
+            position: relative;
+            height: 280px;
+            overflow: hidden;
+            background: linear-gradient(135deg, #1a1a1a, #0f0f0f);
+        }
+
+        .card-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform var(--transition-slow) cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .featured-card:hover .card-image {
+            transform: scale(1.08);
+        }
+
+        /* Card Overlay */
+        .card-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                180deg,
+                rgba(0, 0, 0, 0.1) 0%,
+                rgba(0, 0, 0, 0.3) 50%,
+                rgba(0, 0, 0, 0.7) 100%
+            );
+            pointer-events: none;
+        }
+
+        /* Card Badge */
+        .card-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: linear-gradient(135deg, var(--red-dark), #600000);
+            color: var(--white);
+            padding: 8px 16px;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 700;
+            z-index: 2;
+            border-radius: 50px;
+            box-shadow: 0 10px 30px rgba(139, 0, 0, 0.4);
+        }
+
+        /* Card Content */
+        .card-content {
+            padding: 2rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-title {
+            color: var(--gold);
+            font-size: 1.7rem;
+            margin-bottom: 0.5rem;
+            letter-spacing: 1px;
+        }
+
+        .card-origin {
+            font-size: 0.85rem;
+            color: var(--gray-medium);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
+        }
+
+        .card-description {
+            font-size: 0.95rem;
+            color: var(--gray-light);
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+            line-height: 1.8;
+        }
+
+        .card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(201, 169, 110, 0.1);
+        }
+
+        .card-price {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: var(--gold);
+            font-weight: 700;
+        }
+
+        /* ============================================
+           BUTTONS
+           ============================================ */
+
+        .btn {
+            display: inline-block;
+            padding: 14px 32px;
+            border: 2px solid var(--gold);
+            background: transparent;
+            color: var(--gold);
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all var(--transition-slow);
+            border-radius: 50px;
+            text-align: center;
+            text-decoration: none;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(201, 169, 110, 0.3);
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--gold), var(--gold-light));
+            color: var(--dark-bg);
+            font-weight: 700;
+            box-shadow: 0 15px 40px rgba(201, 169, 110, 0.3);
+        }
+
+        .btn-primary:hover {
+            background: linear-gradient(135deg, var(--gold-light), var(--gold));
+            box-shadow: 0 20px 60px rgba(201, 169, 110, 0.5);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--gray-medium);
+            color: var(--gray-light);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--gold);
+            color: var(--gold);
+            box-shadow: 0 0 20px rgba(201, 169, 110, 0.2);
+        }
+
+        .btn-small {
+            padding: 10px 20px;
+            font-size: 0.75rem;
+        }
+
+        /* ============================================
+           EXPERIENCES SECTION
+           ============================================ */
+
+        .experiences-section {
+            padding: 120px 0;
+            background: linear-gradient(135deg, rgba(20, 20, 20, 0.8), rgba(40, 40, 40, 0.5));
+        }
+
+        .experiences-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .experience-card {
+            background: linear-gradient(135deg, var(--dark-card), #1a1a1a);
+            border: 1px solid rgba(201, 169, 110, 0.15);
+            padding: 2.5rem;
+            border-radius: 8px;
+            position: relative;
+            transition: all var(--transition-slow);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+            opacity: 0;
+            transform: translateY(60px);
+        }
+
+        .experience-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+            animation: fadeInUp 1s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+        }
+
+        .experience-card:nth-child(1).visible { animation-delay: 0.1s; }
+        .experience-card:nth-child(2).visible { animation-delay: 0.2s; }
+        .experience-card:nth-child(3).visible { animation-delay: 0.3s; }
+
+        .experience-card:hover {
+            border-color: var(--gold);
+            box-shadow: 0 30px 80px rgba(201, 169, 110, 0.15);
+            transform: translateY(-10px);
+        }
+
+        .experience-card h3 {
+            color: var(--gold);
+            margin-bottom: 1.5rem;
+            font-size: 1.6rem;
+        }
+
+        .experience-items {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .experience-items li {
+            padding: 0.8rem 0;
+            color: var(--gray-light);
+            font-size: 0.95rem;
+            border-bottom: 1px solid rgba(201, 169, 110, 0.1);
+        }
+
+        .experience-items li:last-child {
+            border-bottom: none;
+        }
+
+        .experience-price {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: var(--gold);
+            font-weight: 700;
+            margin: 1.5rem 0;
+        }
+
+        .featured-experience {
+            border: 2px solid var(--gold);
+            transform: scale(1.05);
+            background: linear-gradient(135deg, rgba(201, 169, 110, 0.05), rgba(139, 0, 0, 0.03));
+        }
+
+        .experience-badge {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, var(--gold), var(--gold-light));
+            color: var(--dark-bg);
+            padding: 6px 18px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-radius: 50px;
+        }
+
+        /* ============================================
+           TESTIMONIALS SECTION
+           ============================================ */
+
+        .testimonials-section {
+            padding: 120px 0;
+            border-top: 1px solid rgba(201, 169, 110, 0.1);
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .testimonial-card {
+            background: linear-gradient(135deg, var(--dark-card), #1a1a1a);
+            padding: 2rem;
+            border-left: 4px solid var(--gold);
+            border-radius: 4px;
+            transition: all var(--transition);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+            opacity: 0;
+            transform: translateY(60px);
+        }
+
+        .testimonial-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+            animation: fadeInUp 1s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+        }
+
+        .testimonial-card:nth-child(1).visible { animation-delay: 0.1s; }
+        .testimonial-card:nth-child(2).visible { animation-delay: 0.2s; }
+        .testimonial-card:nth-child(3).visible { animation-delay: 0.3s; }
+
+        .testimonial-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 60px rgba(201, 169, 110, 0.15);
+        }
+
+        .stars {
+            color: var(--gold);
+            font-size: 1rem;
+            margin-bottom: 1rem;
+            letter-spacing: 2px;
+        }
+
+        .testimonial-text {
+            font-size: 1rem;
+            font-style: italic;
+            color: var(--gray-light);
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .testimonial-author {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.1rem;
+            box-shadow: 0 10px 30px rgba(201, 169, 110, 0.2);
+        }
+
+        .author-name {
+            font-weight: 600;
+            color: var(--white);
+            margin-bottom: 0.2rem;
+        }
+
+        .author-title {
+            font-size: 0.85rem;
+            color: var(--gray-medium);
+        }
+
+        /* ============================================
+           FOOTER
+           ============================================ */
+
+        .footer {
+            background: #000000;
+            border-top: 1px solid rgba(201, 169, 110, 0.15);
+            padding: 80px 0 40px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-col h4 {
+            color: var(--gold);
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .footer-col p {
+            font-size: 0.95rem;
+            color: var(--gray-light);
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-col a {
+            color: var(--gray-light);
+            transition: color var(--transition);
+            font-size: 0.95rem;
+        }
+
+        .footer-col a:hover {
+            color: var(--gold);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-links a {
+            display: inline-block;
+            padding: 10px 16px;
+            border: 1px solid var(--gray-medium);
+            border-radius: 50px;
+            font-size: 0.8rem;
+            transition: all var(--transition);
+        }
+
+        .social-links a:hover {
+            border-color: var(--gold);
+            color: var(--gold);
+            background: rgba(201, 169, 110, 0.1);
+        }
+
+        .footer-divider {
+            height: 1px;
+            background: rgba(201, 169, 110, 0.1);
+            margin-bottom: 2rem;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            color: var(--gray-medium);
+            font-size: 0.85rem;
+        }
+
+        .footer-bottom p {
+            margin-bottom: 0.5rem;
+        }
+
+        /* ============================================
+           ANIMATIONS
+           ============================================ */
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(60px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-60px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        body {
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* ============================================
+           RESPONSIVE DESIGN
+           ============================================ */
+
+        @media (max-width: 1024px) {
+            .container {
+                padding: 0 30px;
+            }
+
+            .navbar-container {
+                padding: 0 30px;
+            }
+
+            h1 { font-size: 3.5rem; }
+            h2 { font-size: 2.8rem; }
+
+            .section-title {
+                font-size: 2.8rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            section {
+                padding: 80px 0;
+            }
+
+            h1 { font-size: 2.5rem; }
+            h2 { font-size: 2rem; }
+            h3 { font-size: 1.4rem; }
+
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .featured-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .experiences-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .featured-experience {
+                transform: scale(1);
+            }
+
+            .card-image-wrapper {
+                height: 220px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container,
+            .navbar-container {
+                padding: 0 20px;
+            }
+
+            .logo-text {
+                font-size: 1.3rem;
+            }
+
+            .hero-title {
+                font-size: 1.8rem;
+            }
+
+            h1 { font-size: 1.8rem; }
+            h2 { font-size: 1.5rem; }
+            h3 { font-size: 1.2rem; }
+
+            .btn {
+                width: 100%;
+                padding: 12px 20px;
+            }
+
+            .btn-hero {
+                width: 100%;
+                padding: 14px 28px;
+            }
+        }
+
+        /* ============================================
+           SCROLLBAR STYLING
+           ============================================ */
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--dark-bg);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--gold);
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--gold-light);
+        }
+
+        /* ============================================
+           SELECTION STYLING
+           ============================================ */
+
+        ::selection {
+            background: var(--gold);
+            color: var(--dark-bg);
+        }
+
+        ::-moz-selection {
+            background: var(--gold);
+            color: var(--dark-bg);
+        }
+    </style>
 </head>
-
 <body>
 
-<header>
-<div class="logo">VORTEX</div>
-<nav>
-<a href="#">Início</a>
-<a href="#catalogo">Cortes</a>
-</nav>
-</header>
+    <!-- 🔝 PREMIUM NAVBAR -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="logo">
+                <span class="logo-text">⬢ VORTEX</span>
+                <span class="logo-tagline">STEAKHOUSE</span>
+            </div>
+            
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link active">Home</a></li>
+                <li><a href="#cortes" class="nav-link">Cortes Premium</a></li>
+                <li><a href="#experiencias" class="nav-link">Experiências</a></li>
+                <li><a href="#sobre" class="nav-link">Sobre</a></li>
+                <li><a href="#contato" class="nav-link cta-nav">Reservar</a></li>
+            </ul>
+            
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
 
-<section class="hero">
-<h1>A ARTE DA CARNE</h1>
-<p>Cortes nobres • Experiência premium</p>
-<a href="#catalogo" class="btn">VER CORTES</a>
-</section>
+    <!-- 🎬 HERO SECTION - CINEMATIC FULLSCREEN -->
+    <header class="hero" id="home">
+        <div class="hero-background">
+            <img src="https://images.pexels.com/photos/5632399/pexels-photo-5632399.jpeg?auto=compress&cs=tinysrgb&w=1600&h=900&dpr=1" alt="Premium Steak" class="hero-image">
+            <div class="hero-overlay"></div>
+        </div>
+        
+        <div class="hero-content">
+            <h1 class="hero-title">An Experience Beyond Taste</h1>
+            <p class="hero-subtitle">Where premium cuts meet perfection</p>
+            <a href="#cortes" class="btn-hero">Explore Premium Cuts</a>
+        </div>
+        
+        <div class="scroll-indicator">
+            <span></span>
+        </div>
+    </header>
 
-<section id="catalogo" class="catalogo">
+    <!-- ✨ FEATURED MEATS - CINEMATIC REDESIGN -->
+    <section class="featured-section" id="cortes">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Nossos Cortes Mais Procurados</h2>
+                <p class="section-subtitle">Seleção exclusiva de carnes nobres • Importadas e Premium</p>
+            </div>
 
-<h2 style="text-align:center;color:#d4af37;margin-bottom:40px;">CORTES PREMIUM</h2>
+            <div class="featured-grid">
+                <!-- WAGYU A5 -->
+                <div class="featured-card">
+                    <div class="card-image-wrapper">
+                        <img src="https://images.pexels.com/photos/3639797/pexels-photo-3639797.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&dpr=1" alt="Wagyu A5" class="card-image">
+                        <div class="card-overlay"></div>
+                        <div class="card-badge">PREMIUM</div>
+                    </div>
+                    
+                    <div class="card-content">
+                        <h3 class="card-title">Wagyu Prime A5</h3>
+                        <p class="card-origin">Importado do Japão • 300g</p>
+                        <p class="card-description">Marmoreio incomparável com infiltração de gordura extremamente fina. Sabor manteigado e suculência que derrete na boca.</p>
+                        <div class="card-footer">
+                            <span class="card-price">R$ 189,90</span>
+                            <a href="https://wa.me/5511999999999?text=Olá!%20Gostaria%20de%20reservar%20Wagyu%20Prime%20A5" class="btn btn-small">Reservar</a>
+                        </div>
+                    </div>
+                </div>
 
-<div class="grid">
+                <!-- ANGUS RIBEYE -->
+                <div class="featured-card">
+                    <div class="card-image-wrapper">
+                        <img src="https://images.pexels.com/photos/3639794/pexels-photo-3639794.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&dpr=1" alt="Angus Ribeye" class="card-image">
+                        <div class="card-overlay"></div>
+                        <div class="card-badge">BLACK ANGUS</div>
+                    </div>
+                    
+                    <div class="card-content">
+                        <h3 class="card-title">Angus Ribeye</h3>
+                        <p class="card-origin">EUA • 350g</p>
+                        <p class="card-description">O corte mais suculento com infiltração de gordura uniformemente distribuída. Sabor intenso, textura macia e presença marcante.</p>
+                        <div class="card-footer">
+                            <span class="card-price">R$ 129,90</span>
+                            <a href="https://wa.me/5511999999999?text=Olá!%20Gostaria%20de%20reservar%20Angus%20Ribeye" class="btn btn-small">Reservar</a>
+                        </div>
+                    </div>
+                </div>
 
-<div class="card">
-<img src="https://images.unsplash.com/photo-1604908176997-125f25cc6f3d">
-<h3>Wagyu A5</h3>
-<span class="preco">Sob consulta</span>
-<a href="https://wa.me/5511999999999?text=Quero Wagyu">Comprar</a>
-</div>
+                <!-- TOMAHAWK STEAK -->
+                <div class="featured-card">
+                    <div class="card-image-wrapper">
+                        <img src="https://images.pexels.com/photos/6996099/pexels-photo-6996099.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&dpr=1" alt="Tomahawk Steak" class="card-image">
+                        <div class="card-overlay"></div>
+                        <div class="card-badge">ESPETACULAR</div>
+                    </div>
+                    
+                    <div class="card-content">
+                        <h3 class="card-title">Tomahawk Steak</h3>
+                        <p class="card-origin">EUA • 1.2kg</p>
+                        <p class="card-description">Contra-filé com osso em formato épico. Perfeito para compartilhar momentos memoráveis. Sabor robusto e presença visual impressionante.</p>
+                        <div class="card-footer">
+                            <span class="card-price">R$ 279,90</span>
+                            <a href="https://wa.me/5511999999999?text=Olá!%20Gostaria%20de%20reservar%20Tomahawk%20Steak" class="btn btn-small">Reservar</a>
+                        </div>
+                    </div>
+                </div>
 
-<div class="card">
-<img src="https://images.unsplash.com/photo-1551183053-bf91a1d81141">
-<h3>Tomahawk</h3>
-<span class="preco">R$ 189,90/kg</span>
-<a href="https://wa.me/5511999999999?text=Quero Tomahawk">Comprar</a>
-</div>
+                <!-- PICANHA PREMIUM -->
+                <div class="featured-card">
+                    <div class="card-image-wrapper">
+                        <img src="https://images.pexels.com/photos/5737434/pexels-photo-5737434.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&dpr=1" alt="Picanha" class="card-image">
+                        <div class="card-overlay"></div>
+                        <div class="card-badge">PREFERIDA</div>
+                    </div>
+                    
+                    <div class="card-content">
+                        <h3 class="card-title">Picanha Premium</h3>
+                        <p class="card-origin">Brasil • 1.5kg</p>
+                        <p class="card-description">Diamante do churrasco brasileiro. Selecionada com capa de gordura uniforme. Maciez extrema e sabor característico incomparável.</p>
+                        <div class="card-footer">
+                            <span class="card-price">R$ 99,90</span>
+                            <a href="https://wa.me/5511999999999?text=Olá!%20Gostaria%20de%20reservar%20Picanha%20Premium" class="btn btn-small">Reservar</a>
+                        </div>
+                    </div>
+                </div>
 
-<div class="card">
-<img src="https://images.unsplash.com/photo-1617196038433-0c4c64a7b8e6">
-<h3>Bife Ancho</h3>
-<span class="preco">R$ 109,90/kg</span>
-<a href="https://wa.me/5511999999999?text=Quero Ancho">Comprar</a>
-</div>
+                <!-- FILET MIGNON -->
+                <div class="featured-card">
+                    <div class="card-image-wrapper">
+                        <img src="https://images.pexels.com/photos/6998532/pexels-photo-6998532.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&dpr=1" alt="Filet Mignon" class="card-image">
+                        <div class="card-overlay"></div>
+                        <div class="card-badge">LUXO</div>
+                    </div>
+                    
+                    <div class="card-content">
+                        <h3 class="card-title">Filet Mignon Premium</h3>
+                        <p class="card-origin">Brasil • 250g</p>
+                        <p class="card-description">O corte mais macio e refinado. Textura macia incomparável sem infiltração de gordura. Para os momentos mais especiais.</p>
+                        <div class="card-footer">
+                            <span class="card-price">R$ 149,90</span>
+                            <a href="https://wa.me/5511999999999?text=Olá!%20Gostaria%20de%20reservar%20Filet%20Mignon%20Premium" class="btn btn-small">Reservar</a>
+                        </div>
+                    </div>
+                </div>
 
-</div>
+                <!-- SHORT RIB -->
+                <div class="featured-card">
+                    <div class="card-image-wrapper">
+                        <img src="https://images.pexels.com/photos/5639794/pexels-photo-5639794.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&dpr=1" alt="Short Rib" class="card-image">
+                        <div class="card-overlay"></div>
+                        <div class="card-badge">ESPECIALIDADE</div>
+                    </div>
+                    
+                    <div class="card-content">
+                        <h3 class="card-title">Short Rib</h3>
+                        <p class="card-origin">EUA • 800g</p>
+                        <p class="card-description">Corte dianteiro com infiltração de gordura premium. Sabor potente, textura amanteigada e suculência extrema em cada fibra.</p>
+                        <div class="card-footer">
+                            <span class="card-price">R$ 159,90</span>
+                            <a href="https://wa.me/5511999999999?text=Olá!%20Gostaria%20de%20reservar%20Short%20Rib" class="btn btn-small">Reservar</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-</section>
+    <!-- 🎁 EXPERIÊNCIAS PREMIUM -->
+    <section class="experiences-section" id="experiencias">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Experiências Gourmet Completas</h2>
+                <p class="section-subtitle">Pacotes premium selecionados para momentos memoráveis</p>
+            </div>
 
-<footer>
-© 2026 Vortex Steakhouse
-</footer>
+            <div class="experiences-grid">
+                <div class="experience-card">
+                    <h3>Kit Executivo</h3>
+                    <ul class="experience-items">
+                        <li>✓ Picanha Premium 1.5kg</li>
+                        <li>✓ Linguiça Artesanal 500g</li>
+                        <li>✓ Acompanhamentos Especiais</li>
+                        <li>✓ Orientações de Preparo</li>
+                    </ul>
+                    <p class="experience-price">R$ 289,90</p>
+                    <a href="https://wa.me/5511999999999?text=Gostaria%20do%20Kit%20Executivo" class="btn btn-outline">Encomendar</a>
+                </div>
 
-<a href="https://wa.me/5511999999999" class="whatsapp">WhatsApp</a>
+                <div class="experience-card featured-experience">
+                    <div class="experience-badge">MAIS PROCURADO</div>
+                    <h3>Kit Gourmet Premium</h3>
+                    <ul class="experience-items">
+                        <li>✓ Wagyu A5 300g</li>
+                        <li>✓ Tomahawk Steak 1.2kg</li>
+                        <li>✓ Seleção de Acompanhamentos</li>
+                        <li>✓ Pão Gourmet Premium</li>
+                        <li>✓ Consultoria de Preparo</li>
+                    </ul>
+                    <p class="experience-price">R$ 489,90</p>
+                    <a href="https://wa.me/5511999999999?text=Gostaria%20do%20Kit%20Gourmet%20Premium" class="btn btn-primary">Encomendar Agora</a>
+                </div>
+
+                <div class="experience-card">
+                    <h3>Kit Masterclass</h3>
+                    <ul class="experience-items">
+                        <li>✓ 3 Cortes Premium Sortidos</li>
+                        <li>✓ Guia de Preparação Premium</li>
+                        <li>✓ Vinho Recomendado</li>
+                        <li>✓ Suporte de Chef 24h</li>
+                    </ul>
+                    <p class="experience-price">R$ 699,90</p>
+                    <a href="https://wa.me/5511999999999?text=Gostaria%20do%20Kit%20Masterclass" class="btn btn-outline">Encomendar</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ⭐ TESTIMONIALS PREMIUM -->
+    <section class="testimonials-section">
+        <div class="container">
+            <h2 class="section-title">Histórias de Clientes Satisfeitos</h2>
+            <p class="section-subtitle">Veja por que fomos escolhidos pelos mais exigentes paladares</p>
+
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonial-text">"A qualidade da Wagyu é incomparável. Surpreendi meu cliente com essa experiência Premium. A precisão do corte reflete verdadeiro profissionalismo."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar" style="background: linear-gradient(135deg, #c9a96e, #8b7355);">RC</div>
+                        <div>
+                            <p class="author-name">Ricardo Campos</p>
+                            <p class="author-title">Chef Executivo - Restaurante Gourmet</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonial-text">"Finalmente encontrei um fornecedor que verdadeiramente compreende carnes premium. A Picanha é SEMPRE perfeita. Atendimento impecável."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar" style="background: linear-gradient(135deg, #8b7355, #c9a96e);">MB</div>
+                        <div>
+                            <p class="author-name">Marcela Barbosa</p>
+                            <p class="author-title">Proprietária - Churrascaria Premium</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonial-text">"Entrega com pontualidade suíça. Carnes sempre frescas e impecáveis. Vortex redefiniu meu conceito de excelência em cortes premium."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar" style="background: linear-gradient(135deg, #c9a96e, #654321);">AL</div>
+                        <div>
+                            <p class="author-name">Alexandre Lima</p>
+                            <p class="author-title">Sommelier & Restaurateur</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 📍 ABOUT SECTION -->
+    <section class="about-section" id="sobre">
+        <div class="container">
+            <div class="about-text">
+                <h2>A Essência de Vortex</h2>
+                <p>Nascemos da paixão por carnes premium e da obsessão pela excelência. Não somos apenas um fornecedor – somos guardiões de um estilo de vida onde cada detalhe importa.</p>
+                <p>Selecionamos apenas as melhores criações de fornecedores certificados mundialmente. Cada corte que sai de nosso frigorífico carrega a promessa de uma experiência inesquecível.</p>
+                <div class="about-stats">
+                    <div class="stat">
+                        <span class="stat-number">15+</span>
+                        <span class="stat-label">Anos de Excelência</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">1000+</span>
+                        <span class="stat-label">Clientes Satisfeitos</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">6</span>
+                        <span class="stat-label">Países Fornecedores</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 📞 CONTACT SECTION -->
+    <section class="contact-section" id="contato">
+        <div class="container">
+            <h2 class="section-title">Reserve Sua Experiência</h2>
+            <p class="section-subtitle">Estamos prontos para surpreendê-lo com excelência</p>
+
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <h3>📞 Telefone</h3>
+                    <p>(11) 9999-9999</p>
+                    <a href="https://wa.me/5511999999999" class="btn btn-small">WhatsApp Agora</a>
+                </div>
+
+                <div class="contact-card">
+                    <h3>📧 Email</h3>
+                    <p>contato@vortexsteakhouse.com.br</p>
+                    <a href="mailto:contato@vortexsteakhouse.com.br" class="btn btn-small">Enviar Email</a>
+                </div>
+
+                <div class="contact-card">
+                    <h3>📍 Localização</h3>
+                    <p>Aracatuba - SP</p>
+                    <p style="font-size: 0.9rem; color: #888;">Disponível para entrega em toda região</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 🔚 FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>Vortex Steakhouse</h4>
+                    <p>Boutique de carnes e cortes nobres para paladares exigentes.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Menu</h4>
+                    <ul>
+                        <li><a href="#cortes">Cortes Premium</a></li>
+                        <li><a href="#experiencias">Experiências</a></li>
+                        <li><a href="#sobre">Sobre</a></li>
+                        <li><a href="#contato">Contato</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Social</h4>
+                    <div class="social-links">
+                        <a href="#">Instagram</a>
+                        <a href="#">Facebook</a>
+                        <a href="#">WhatsApp</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-divider"></div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Vortex Steakhouse. Todos os direitos reservados.</p>
+                <p>Desenvolvido por <strong>Sistemas Vortex BR</strong></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ============================================
+         JAVASCRIPT - INTERSECTION OBSERVER & ANIMATIONS
+         ============================================ -->
+
+    <script>
+        /* ============================================
+           VORTEX STEAKHOUSE - COMPLETE JAVASCRIPT
+           Intersection Observer, Scroll Effects & Interactions
+           ============================================ */
+
+        // ============ CONFIGURATION ============
+
+        const observerConfig = {
+            threshold: 0.15,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        // ============ INTERSECTION OBSERVER ============
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerConfig);
+
+        // ============ OBSERVE ELEMENTS ============
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const elementsToObserve = document.querySelectorAll(
+                '.featured-card, .experience-card, .testimonial-card, .contact-card'
+            );
+            
+            elementsToObserve.forEach(element => {
+                observer.observe(element);
+            });
+        });
+
+        // ============ SCROLL PARALLAX EFFECT ============
+
+        const heroImage = document.querySelector('.hero-image');
+
+        if (heroImage) {
+            window.addEventListener('scroll', () => {
+                const scrollPosition = window.pageYOffset;
+                
+                if (scrollPosition < window.innerHeight) {
+                    const parallaxAmount = scrollPosition * 0.5;
+                    heroImage.style.transform = `translateY(${parallaxAmount}px) scale(1)`;
+                }
+            });
+        }
+
+        // ============ NAVBAR SCROLL EFFECT ============
+
+        const navbar = document.querySelector('.navbar');
+
+        if (navbar) {
+            window.addEventListener('scroll', () => {
+                const scrollTop = window.pageYOffset;
+                
+                if (scrollTop > 50) {
+                    navbar.style.boxShadow = '0 15px 50px rgba(0, 0, 0, 0.7)';
+                    navbar.style.background = 'rgba(10, 10, 10, 0.98)';
+                } else {
+                    navbar.style.boxShadow = '0 10px 40px rgba(0, 0, 0, 0.5)';
+                    navbar.style.background = 'rgba(10, 10, 10, 0.95)';
+                }
+            });
+        }
+
+        // ============ ACTIVE NAV LINK ON SCROLL ============
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            
+            const sections = document.querySelectorAll('section[id]');
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                
+                if (window.pageYOffset >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.remove('active');
+                
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // ============ SMOOTH SCROLL FOR ANCHOR LINKS ============
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href === '#') return;
+                
+                e.preventDefault();
+                
+                const target = document.querySelector(href);
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // ============ MOBILE MENU TOGGLE ============
+
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('.nav-menu');
+
+        if (hamburger && navMenu) {
+            hamburger.addEventListener('click', () => {
+                if (navMenu.style.display === 'flex') {
+                    navMenu.style.display = 'none';
+                    hamburger.classList.remove('active');
+                } else {
+                    navMenu.style.display = 'flex';
+                    hamburger.classList.add('active');
+                }
+            });
+            
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.addEventListener('click', () => {
+                    navMenu.style.display = 'none';
+                    hamburger.classList.remove('active');
+                });
+            });
+        }
+
+        // ============ SCROLL TO TOP BUTTON ============
+
+        function createScrollToTopButton() {
+            const button = document.createElement('button');
+            button.id = 'scroll-to-top';
+            button.innerHTML = '↑';
+            button.style.cssText = `
+                position: fixed;
+                bottom: 40px;
+                right: 40px;
+                width: 50px;
+                height: 50px;
+                background: #c9a96e;
+                border: none;
+                border-radius: 50%;
+                color: #0a0a0a;
+                font-size: 1.5rem;
+                cursor: pointer;
+                opacity: 0;
+                visibility: hidden;
+                transition: all 0.3s ease;
+                z-index: 999;
+                font-weight: bold;
+                box-shadow: 0 10px 30px rgba(201, 169, 110, 0.3);
+            `;
+            
+            document.body.appendChild(button);
+            
+            window.addEventListener('scroll', () => {
+                if (window.pageYOffset > 300) {
+                    button.style.opacity = '1';
+                    button.style.visibility = 'visible';
+                } else {
+                    button.style.opacity = '0';
+                    button.style.visibility = 'hidden';
+                }
+            });
+            
+            button.addEventListener('click', () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', createScrollToTopButton);
+
+        // ============ LOG ============
+
+        console.log('🥩 Vortex Steakhouse - Premium Single File Loaded Successfully');
+    </script>
 
 </body>
 </html>
